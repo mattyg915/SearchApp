@@ -1,18 +1,5 @@
-import readline from "readline";
+import { organization } from "./modules/organizations/Organization";
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+const orgs: Array<organization> = organization.getOrgsFromorgData();
 
-rl.question("What is your name ? ", function(name) {
-    rl.question("Where do you live ? ", function(country) {
-        console.log(`${name}, is a citizen of ${country}`);
-        rl.close();
-    });
-});
-
-rl.on("close", function() {
-    console.log("\nBYE BYE !!!");
-    process.exit(0);
-});
+console.log(orgs);
