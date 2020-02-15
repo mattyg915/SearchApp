@@ -32,7 +32,7 @@ import tickets from "../../data/tickets.json"
      * an array of ticket objects
      */
     static getOrgsFromorgData(): Array<ticket> {
-        const orgs: Array<ticket> = []; 
+        const ticks: Array<ticket> = []; 
 
         for (let data of tickets) {
             // date strings in the data contain a space that can't be parsed properly
@@ -41,7 +41,7 @@ import tickets from "../../data/tickets.json"
                 data["due_at"] = data["due_at"].replace(/\s/g, '');
             }
 
-            orgs.push(
+            ticks.push(
                 new ticket({
                     _id: data["_id"],
                     url: data["url"],
@@ -63,6 +63,6 @@ import tickets from "../../data/tickets.json"
             );
         }
 
-        return orgs;
+        return ticks;
     }
  }
