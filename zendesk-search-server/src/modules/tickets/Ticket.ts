@@ -31,7 +31,7 @@ import tickets from "../../data/tickets.json"
      * Parses the tickets.json file into
      * an array of ticket objects
      */
-    static getOrgsFromorgData(): Array<ticket> {
+    static getTicketsFromData(): Array<ticket> {
         const ticks: Array<ticket> = []; 
 
         for (let data of tickets) {

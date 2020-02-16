@@ -1,5 +1,7 @@
-import { organization } from "./modules/organizations/Organization";
+import { User } from "./modules/users/User";
 
-const orgs: Array<organization> = organization.getOrgsFromorgData();
+const users: Array<User> = User.getMatchingUsers({
+  tags: "Spring"
+});
 
-console.log(orgs);
+console.log(users);
