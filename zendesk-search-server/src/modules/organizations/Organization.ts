@@ -19,14 +19,14 @@ export class Organization extends Base {
 
   constructor(orgData: orgJson) {
     super();
-    (this._id = orgData._id),
-      (this.url = orgData.url),
-      (this.external_id = orgData.external_id),
-      (this.name = orgData.name),
-      (this.domain_names = orgData.domain_names),
-      (this.created_at = new Date(orgData.created_at)),
-      (this.details = orgData.details),
-      (this.shared_tickets = orgData.shared_tickets),
-      (this.tags = orgData.tags);
+    this._id = orgData._id;
+    this.url = orgData.url;
+    this.external_id = orgData.external_id;
+    this.name = orgData.name;
+    this.domain_names = orgData.domain_names;
+    this.created_at = new Date(orgData.created_at);
+    this.details = orgData.details;
+    this.shared_tickets = orgData.shared_tickets;
+    this.tags = orgData.tags;
   }
 }
