@@ -1,18 +1,3 @@
 module.exports = {
-  plugins: [
-    "@babel/plugin-transform-spread",
-    "@babel/proposal-object-rest-spread"
-  ],
-  presets: [
-    ["@babel/preset-env", getPresetEnvConfig()],
-    "@babel/preset-typescript"
-  ]
+  presets: ["@babel/preset-env", "@babel/preset-typescript"]
 };
-
-function getPresetEnvConfig() {
-  const config = {
-    useBuiltIns: "entry"
-  };
-
-  return config;
-}
