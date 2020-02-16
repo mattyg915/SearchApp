@@ -6,9 +6,12 @@ describe("User module", () => {
   let user: User;
   let userData: userJson = userJsonMock;
 
+  beforeAll(() => {
+    user = new User(userData);
+  });
+
   describe("Constructor", () => {
     it("creates a new user from valid data", () => {
-      user = new User(userData);
       expect(user._id).toEqual(userData._id);
       expect(user.url).toEqual(userData.url);
       expect(user.external_id).toEqual(userData.external_id);
@@ -28,6 +31,18 @@ describe("User module", () => {
       expect(user.tags).toEqual(userData.tags);
       expect(user.suspended).toEqual(userData.suspended);
       expect(user.role).toEqual(userData.role);
+    });
+  });
+
+  describe("getFieldValue", () => {
+    it("returns value of provided field", () => {
+      const name: string = user.getFieldValue("name");
+      expect(name).toEqual(user.name);
+    });
+    it("throws an error when a field that doesn't exist is provided", () => {
+      expect(() => {
+        const lastName: string = user.getFieldValue("last_name");
+      }).toThrowError("Field last_name does not exist on this collection");
     });
   });
 });

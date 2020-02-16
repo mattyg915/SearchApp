@@ -7,8 +7,7 @@ export class Base {
    */
   getFieldValue(key: string): any {
     if (!hasKey(this, key)) {
-      console.log(`Field ${key} does not exist on this collection`);
-      return undefined;
+      throw new Error(`Field ${key} does not exist on this collection`);
     }
     return this[key];
   }

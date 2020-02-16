@@ -6,9 +6,12 @@ describe("Ticket module", () => {
   let ticket: Ticket;
   let ticketData: ticketJson = ticketJsonMock;
 
+  beforeAll(() => {
+    ticket = new Ticket(ticketData);
+  });
+
   describe("Constructor", () => {
     it("creates a new ticket from valid data", () => {
-      ticket = new Ticket(ticketData);
       expect(ticket._id).toEqual(ticketData._id);
       expect(ticket.url).toEqual(ticketData.url);
       expect(ticket.external_id).toEqual(ticketData.external_id);
@@ -25,6 +28,18 @@ describe("Ticket module", () => {
       expect(ticket.has_incidents).toEqual(ticketData.has_incidents);
       expect(ticket.due_at).toEqual(new Date(ticketData.due_at!));
       expect(ticket.via).toEqual(ticketData.via);
+    });
+  });
+
+  describe("getFieldValue", () => {
+    it("returns value of provided field", () => {
+      const subject: string = ticket.getFieldValue("subject");
+      expect(subject).toEqual(ticket.subject);
+    });
+    it("throws an error when a field that doesn't exist is provided", () => {
+      expect(() => {
+        const ticketNum: string = ticket.getFieldValue("ticket_number");
+      }).toThrowError("Field ticket_number does not exist on this collection");
     });
   });
 });
