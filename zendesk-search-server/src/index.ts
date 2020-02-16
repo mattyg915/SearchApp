@@ -1,9 +1,12 @@
 import { User } from "./modules/users/User";
 import { Ticket } from "./modules/tickets/Ticket";
 import { Organization } from "./modules/organizations/Organization";
+import { UserController } from "./controllers/user/User.controller";
+import { TicketController } from "./controllers/ticket/Ticket.controller";
 
-const orgs: Array<Organization> = Organization.getMatchingOrgs({
-  domain_names: "troll"
+const tickets: Array<Ticket> = TicketController.getMatchingTickets({
+  assignee_id: 24
 });
 
-console.log(orgs);
+console.log(tickets);
+console.log(tickets[0].getFieldValue("tags"));
