@@ -3,8 +3,8 @@ import { BaseController } from "../base/Base.controller";
 import {
   orgQuery,
   orgJson
-} from "../../modules/organizations/organizations.interfaces.js";
-import { Organization } from "../../modules/organizations/Organization.js";
+} from "../../modules/organizations/organizations.interfaces";
+import { Organization } from "../../modules/organizations/Organization";
 
 export class OrganizationController extends BaseController {
   /**
