@@ -1,3 +1,6 @@
+/**
+ * Class contains helper functions for searching data
+ */
 export class searchService {
   /**
    * Searches for occurence of a string in another string
@@ -64,8 +67,10 @@ export class searchService {
       return false;
     }
 
+    search = search.toLowerCase();
+
     for (let element of source) {
-      if (element.indexOf(search) >= 0) {
+      if (element.toLowerCase().indexOf(search) >= 0) {
         return true;
       }
     }

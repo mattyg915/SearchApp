@@ -1,13 +1,13 @@
 import users from "../../data/users.json";
 import { userJson, userQuery } from "./user.interfaces";
-import { searchService } from "../../services/search/searchService";
+import { Base } from "../Base/Base";
 
 /**
  * User class contains data and functions related to an
  * user
  */
 
-export class User {
+export class User extends Base {
   _id!: number;
   url!: string;
   external_id!: string;
@@ -29,6 +29,7 @@ export class User {
   role!: string;
 
   constructor(userObj: User) {
+    super();
     Object.assign(this, userObj);
   }
 
@@ -75,52 +76,11 @@ export class User {
    */
   static getMatchingUsers(params: userQuery): Array<User> {
     const newUsers: Array<User> = [];
-    let searchMatch; // initialize to true, set false on non-match
-    let option: keyof User;
-    let newUser: User;
 
-    for (let data of users) {
-      searchMatch = true;
-      newUser = this.createUserFromJson(data);
-      for (option in params) {
-        let query: any = params[option];
-        let searchTerm: any = data[option];
+    const userData: Array<Object> = this.getMatchingData(params, users);
 
-        if (typeof query === "string" && typeof searchTerm === "string") {
-          if (!searchService.searchStringField(query, searchTerm)) {
-            searchMatch = false;
-            break;
-          }
-        } else if (
-          typeof query === "number" &&
-          typeof searchTerm === "number"
-        ) {
-          if (!searchService.searchNumberField(query, searchTerm)) {
-            searchMatch = false;
-            break;
-          }
-        } else if (
-          typeof query === "string" &&
-          typeof searchTerm === "object"
-        ) {
-          if (!searchService.searchStringArray(query, searchTerm)) {
-            searchMatch = false;
-            break;
-          }
-        } else if (
-          typeof query === "boolean" &&
-          typeof searchTerm === "boolean"
-        ) {
-          if (!searchService.searchBooleanField(query, searchTerm)) {
-            searchMatch = false;
-            break;
-          }
-        }
-      }
-
-      if (searchMatch) {
-        newUsers.push(newUser);
-      }
+    for (let user of userData) {
+      newUsers.push(this.createUserFromJson(user as userJson));
     }
 
     return newUsers;

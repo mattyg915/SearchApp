@@ -1,7 +1,8 @@
 import { User } from "./modules/users/User";
+import { Ticket } from "./modules/tickets/Ticket";
 
-const users: Array<User> = User.getMatchingUsers({
-  tags: "Spring"
+const tickets: Array<Ticket> = Ticket.getMatchingTickets({
+  tags: "ohio"
 });
 
-console.log(users);
+console.log(tickets);
