@@ -12,7 +12,7 @@ export class BaseController {
    * @returns an array of objects that match the
    *   provided query
    */
-  static getMatchingData(params: object, data: Array<Object>): Array<Object> {
+  getMatchingData(params: object, data: Array<Object>): Array<Object> {
     const result: Array<Object> = [];
     let searchMatch; // initialize to true, set false on non-match
 
