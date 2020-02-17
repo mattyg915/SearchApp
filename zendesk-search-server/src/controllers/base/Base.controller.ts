@@ -28,6 +28,7 @@ export class BaseController {
           searchTerm = item[option];
         } else {
           // optional fields that aren't populated will be caught here
+          searchMatch = false;
           break;
         }
 
@@ -57,6 +58,16 @@ export class BaseController {
           typeof searchTerm === "boolean"
         ) {
           if (!searchService.searchBooleanField(query, searchTerm)) {
+            searchMatch = false;
+            break;
+          }
+        } else if (
+          query.hasOwnProperty("date") &&
+          typeof searchTerm === "string"
+        ) {
+          // dates are all strings, so to differentiate we put them in an object
+          query = query.date;
+          if (!searchService.searchDateField(query, searchTerm)) {
             searchMatch = false;
             break;
           }

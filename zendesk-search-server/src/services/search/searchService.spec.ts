@@ -101,11 +101,10 @@ describe("Search Service", () => {
   });
 
   describe("searchDateField", () => {
-    let searchDate: Date;
+    let searchDate: string;
 
     beforeAll(() => {
-      searchDate = new Date("2016-05-21T11:10:28-10:00");
-      console.log(searchDate);
+      searchDate = "2016-05-21T11:10:28 -10:00";
     });
 
     it("returns true if the dates match", () => {

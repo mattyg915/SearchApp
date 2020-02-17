@@ -85,10 +85,15 @@ export class searchService {
    */
   static searchDateField(
     search: string | undefined,
-    source: Date | undefined
+    source: Date | string | undefined
   ): boolean {
     if (!source || !search) {
       return false;
+    }
+
+    if (typeof source === "string") {
+      source = source.replace(/\s/g, "");
+      source = new Date(source);
     }
 
     // validates date format
@@ -115,9 +120,6 @@ export class searchService {
       }
 
       const dateTest: string = `${year}-${monthToken}-${dayToken}`;
-
-      console.log(dateTest);
-      console.log(search);
 
       if (search === dateTest) {
         return true;

@@ -19,6 +19,8 @@ export class Organization extends Base {
 
   constructor(orgData: orgJson) {
     super();
+    orgData.created_at = orgData.created_at.replace(/\s/g, "");
+
     this._id = orgData._id;
     this.url = orgData.url;
     this.external_id = orgData.external_id;
