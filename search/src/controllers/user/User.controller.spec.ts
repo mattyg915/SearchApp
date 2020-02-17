@@ -1,10 +1,9 @@
-import { BaseController } from "../base/Base.controller";
 import { UserController } from "./User.controller";
 import { userJsonMock } from "../../modules/users/User.mocks";
 import { User } from "../../modules/users/User";
 
 describe("UserController", () => {
-  const ctrl = new UserController([userJsonMock]);
+  const ctrl: UserController = new UserController([userJsonMock]);
 
   describe("getMatchingUser", () => {
     it("calls the base controller search method", () => {

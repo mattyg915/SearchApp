@@ -7,6 +7,19 @@ import {
 import { Organization } from "../../modules/organizations/Organization";
 
 export class OrganizationController extends BaseController {
+  orgData!: Array<orgJson>;
+
+  /**
+   * @param data optional parameter for a separate source of data
+   */
+  constructor(data?: Array<orgJson>) {
+    super();
+    if (data) {
+      this.orgData = data;
+    } else {
+      this.orgData = organizations;
+    }
+  }
   /**
    * Parses the organizations.json file into
    * an array of organization objects that meet the
@@ -17,10 +30,10 @@ export class OrganizationController extends BaseController {
    * @returns an array of organizations that match the
    *   provided query
    */
-  static getMatchingOrgs(params: orgQuery): Array<Organization> {
+  getMatchingOrgs(params: orgQuery): Array<Organization> {
     const newOrgs: Array<Organization> = [];
 
-    const orgData: Array<Object> = this.getMatchingData(params, organizations);
+    const orgData: Array<Object> = this.getMatchingData(params, this.orgData);
 
     for (let org of orgData) {
       newOrgs.push(new Organization(org as orgJson));

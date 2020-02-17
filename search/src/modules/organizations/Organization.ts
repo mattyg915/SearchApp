@@ -13,7 +13,7 @@ export class Organization extends Base {
   name!: string;
   domain_names!: Array<string>;
   created_at!: Date;
-  details?: string;
+  details?: string | null;
   shared_tickets!: boolean;
   tags!: Array<string>;
 

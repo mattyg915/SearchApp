@@ -5,7 +5,7 @@ export interface orgJson {
   name: string;
   domain_names: Array<string>;
   created_at: string;
-  details?: string;
+  details?: string | null;
   shared_tickets: boolean;
   tags: Array<string>;
 }

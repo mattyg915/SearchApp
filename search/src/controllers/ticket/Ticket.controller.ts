@@ -7,6 +7,19 @@ import { BaseController } from "../base/Base.controller";
 import { Ticket } from "../../modules/tickets/Ticket";
 
 export class TicketController extends BaseController {
+  ticketData!: Array<ticketJson>;
+
+  /**
+   * @param data optional parameter for a separate source of data
+   */
+  constructor(data?: Array<ticketJson>) {
+    super();
+    if (data) {
+      this.ticketData = data;
+    } else {
+      this.ticketData = tickets;
+    }
+  }
   /**
    * Parses the tickets.json file into
    * an array of ticket objects that meet the
@@ -17,10 +30,13 @@ export class TicketController extends BaseController {
    * @returns an array of tickets that match the
    *   provided query
    */
-  static getMatchingTickets(params: ticketQuery): Array<Ticket> {
+  getMatchingTickets(params: ticketQuery): Array<Ticket> {
     const newTickets: Array<Ticket> = [];
 
-    const ticketData: Array<Object> = this.getMatchingData(params, tickets);
+    const ticketData: Array<Object> = this.getMatchingData(
+      params,
+      this.ticketData
+    );
 
     for (let ticket of ticketData) {
       newTickets.push(new Ticket(ticket as ticketJson));
