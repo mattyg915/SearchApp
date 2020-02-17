@@ -1,8 +1,6 @@
 import { searchService } from "./searchService";
 
 describe("Search Service", () => {
-  let searchArray: Array<string>;
-
   describe("searchStringField", () => {
     it("returns true if a string occurs in the search string", () => {
       const result: boolean = searchService.searchStringField("sea", "search");
@@ -63,6 +61,8 @@ describe("Search Service", () => {
   });
 
   describe("searchStringArrayField", () => {
+    let searchArray: Array<string>;
+
     beforeAll(() => {
       searchArray = ["search", "array"];
     });
@@ -94,6 +94,48 @@ describe("Search Service", () => {
     it("returns false if the search field is undefined", () => {
       const result: boolean = searchService.searchStringArray(
         "search",
+        undefined
+      );
+      expect(result).toBe(false);
+    });
+  });
+
+  describe("searchDateField", () => {
+    let searchDate: Date;
+
+    beforeAll(() => {
+      searchDate = new Date("2016-05-21T11:10:28-10:00");
+      console.log(searchDate);
+    });
+
+    it("returns true if the dates match", () => {
+      const result: boolean = searchService.searchDateField(
+        "2016-05-21",
+        searchDate
+      );
+      expect(result).toBe(true);
+    });
+
+    it("returns false if dates don't match", () => {
+      const result: boolean = searchService.searchDateField(
+        "2016-05-22",
+        searchDate
+      );
+      expect(result).toBe(false);
+    });
+
+    it("throws an error if the search date is not properly formatted", () => {
+      expect(() => {
+        const result: boolean = searchService.searchDateField(
+          "2016/05/21",
+          searchDate
+        );
+      }).toThrowError("Date string provided not properly formatted");
+    });
+
+    it("returns false if the search field is undefined", () => {
+      const result: boolean = searchService.searchDateField(
+        "2016-05-21",
         undefined
       );
       expect(result).toBe(false);

@@ -77,4 +77,55 @@ export class searchService {
 
     return false;
   }
+  /**
+   * @param search the date to search for as a
+   * string formatted as "YYYY-MM-DD"
+   * @param source the date to search for
+   * @returns true if the string is found
+   */
+  static searchDateField(
+    search: string | undefined,
+    source: Date | undefined
+  ): boolean {
+    if (!source || !search) {
+      return false;
+    }
+
+    // validates date format
+    const dateRegex = /\d{4}-\d{2}-\d{2}/;
+
+    if (dateRegex.test(search)) {
+      const day = source.getDate();
+      const month = source.getMonth();
+      const year = source.getFullYear();
+      let monthToken: string;
+      let dayToken: string;
+
+      // Handle leading zeros
+      if (month < 10) {
+        monthToken = `0${month + 1}`; // Date zero-indexes the month for...reasons
+      } else {
+        monthToken = `${month + 1}`;
+      }
+
+      if (day < 10) {
+        dayToken = `0${day}`;
+      } else {
+        dayToken = `${day}`;
+      }
+
+      const dateTest: string = `${year}-${monthToken}-${dayToken}`;
+
+      console.log(dateTest);
+      console.log(search);
+
+      if (search === dateTest) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      throw new Error("Date string provided not properly formatted");
+    }
+  }
 }
