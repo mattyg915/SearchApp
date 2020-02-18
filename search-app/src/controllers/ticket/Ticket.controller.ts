@@ -1,10 +1,10 @@
-import tickets from "../../data/tickets.json";
+import tickets from "../../../src/data/tickets.json";
 import {
   ticketJson,
   ticketQuery
-} from "../../modules/tickets/ticket.interfaces";
+} from "../../../src/modules/tickets/ticket.interfaces";
 import { BaseController } from "../base/Base.controller";
-import { Ticket } from "../../modules/tickets/Ticket";
+import { Ticket } from "../../../src/modules/tickets/Ticket";
 
 export class TicketController extends BaseController {
   ticketData!: Array<ticketJson>;

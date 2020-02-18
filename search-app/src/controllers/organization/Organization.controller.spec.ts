@@ -1,6 +1,6 @@
 import { OrganizationController } from "./Organization.controller";
-import { orgJsonMock } from "../../modules/organizations/Organization.mocks";
-import { Organization } from "../../modules/organizations/Organization";
+import { orgJsonMock } from "../../../src/modules/organizations/Organization.mocks";
+import { Organization } from "../../../src/modules/organizations/Organization";
 
 describe("OrganizationController", () => {
   const ctrl: OrganizationController = new OrganizationController([

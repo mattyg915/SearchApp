@@ -1,6 +1,6 @@
 import { BaseController } from "./Base.controller";
 import { searchService } from "../../services/search/searchService";
-import { orgJsonMock } from "../../modules/organizations/Organization.mocks";
+import { orgJsonMock } from "../../../src/modules/organizations/Organization.mocks";
 
 describe("BaseController", () => {
   const dataMockOne = { ...orgJsonMock };

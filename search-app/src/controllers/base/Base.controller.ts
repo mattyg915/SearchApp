@@ -1,5 +1,5 @@
 import { searchService } from "../../services/search/searchService";
-import { hasKey } from "../../utils/utils";
+import { hasKey } from "../../../src/utils/utils";
 
 export class BaseController {
   /**

@@ -1,6 +1,6 @@
 import { UserController } from "./User.controller";
-import { userJsonMock } from "../../modules/users/User.mocks";
-import { User } from "../../modules/users/User";
+import { userJsonMock } from "../../../src/modules/users/User.mocks";
+import { User } from "../../../src/modules/users/User";
 
 describe("UserController", () => {
   const ctrl: UserController = new UserController([userJsonMock]);

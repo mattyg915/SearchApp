@@ -1,7 +1,10 @@
-import users from "../../data/users.json";
-import { userJson, userQuery } from "../../modules/users/user.interfaces";
+import users from "../../../src/data/users.json";
+import {
+  userJson,
+  userQuery
+} from "../../../src/modules/users/user.interfaces";
 import { BaseController } from "../base/Base.controller";
-import { User } from "../../modules/users/User";
+import { User } from "../../../src/modules/users/User";
 
 export class UserController extends BaseController {
   userData!: Array<userJson>;

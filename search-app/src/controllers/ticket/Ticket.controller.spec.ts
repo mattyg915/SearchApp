@@ -1,6 +1,6 @@
 import { TicketController } from "./Ticket.controller";
-import { ticketJsonMock } from "../../modules/tickets/Ticket.mocks";
-import { Ticket } from "../../modules/tickets/Ticket";
+import { ticketJsonMock } from "../../../src/modules/tickets/Ticket.mocks";
+import { Ticket } from "../../../src/modules/tickets/Ticket";
 
 describe("TicketController", () => {
   const ctrl: TicketController = new TicketController([ticketJsonMock]);
