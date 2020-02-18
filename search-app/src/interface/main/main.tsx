@@ -16,15 +16,15 @@ class Main extends Component<searchAppProps, searchAppState> {
         <div className="options">
           <div className="options-text">Select a search option</div>
           <div className="option-select">
-            <Link className="option-button" to="/search-organization">
+            <Link className="option-button" to="/search-organizations">
               Search Organizations
             </Link>
-            <button className="option-button" onClick={this.searchTickets}>
+            <Link className="option-button" to="/search-tickets">
               Search Tickets
-            </button>
-            <button className="option-button" onClick={this.searchUsers}>
+            </Link>
+            <Link className="option-button" to="/search-users">
               Search Users
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./searchOrganization.scss";
+import "./searchOrganizations.scss";
 
 interface searchOrgProps {}
 
@@ -17,6 +17,8 @@ class SearchOrganizations extends Component<searchOrgProps, searchOrgState> {
       </div>
     );
   }
+
+  getSearchFields = () => {};
 }
 
 export default SearchOrganizations;
