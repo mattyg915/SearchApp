@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./searchOrganizations.scss";
+import "./searchOrganizations.css";
 
 interface searchOrgProps {}
 

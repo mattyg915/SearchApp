@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./searchTickets.scss";
+import "./searchTickets.css";
 
 interface searchTicketProps {}
 

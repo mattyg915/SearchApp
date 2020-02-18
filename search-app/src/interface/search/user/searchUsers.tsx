@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./searchUsers.scss";
+import "./searchUsers.css";
 
 interface searchUserProps {}
 

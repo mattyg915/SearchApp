@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./main.scss";
+import "./main.css";
 
 interface searchAppProps {}
 
@@ -13,16 +13,16 @@ class Main extends Component<searchAppProps, searchAppState> {
         <div className="App-header">
           <h1>Welcome to TicketSearch!</h1>
         </div>
-        <div className="options">
-          <div className="options-text">Select a search option</div>
-          <div className="option-select">
-            <Link className="option-button" to="/search-organizations">
+        <div className="App-options">
+          <div className="App-options-text">Select a search option</div>
+          <div className="App-option-select">
+            <Link className="App-option-button" to="/search-organizations">
               Search Organizations
             </Link>
-            <Link className="option-button" to="/search-tickets">
+            <Link className="App-option-button" to="/search-tickets">
               Search Tickets
             </Link>
-            <Link className="option-button" to="/search-users">
+            <Link className="App-option-button" to="/search-users">
               Search Users
             </Link>
           </div>
