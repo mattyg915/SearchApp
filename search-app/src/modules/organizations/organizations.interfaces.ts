@@ -21,3 +21,15 @@ export interface orgQuery {
   shared_tickets?: boolean;
   tags?: string;
 }
+
+export const orgSearchFields: Array<string> = [
+  "_id",
+  "url",
+  "external_id",
+  "name",
+  "domain_names",
+  "created_at",
+  "details",
+  "shared_tickets",
+  "tags"
+];

@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import SearchOrganizations from "./interface/search/organization/searchOrganizations";
+import Search from "./interface/search/Search/Search";
 import Main from "./interface/main/main";
 import "./index.css";
-import SearchTickets from "./interface/search/ticket/searchTickets";
-import SearchUsers from "./interface/search/user/searchUsers";
 interface searchAppProps {}
 
 interface searchAppState {}
@@ -17,13 +15,9 @@ class App extends Component<searchAppProps, searchAppState> {
     return (
       <Router history={history}>
         <Route component={Main} path="/" exact />
-        <Route
-          component={SearchOrganizations}
-          path="/search-organizations"
-          exact
-        />
-        <Route component={SearchTickets} path="/search-tickets" exact />
-        <Route component={SearchUsers} path="/search-users" exact />
+        <Route component={Search} path="/searchOrgs/:searchType" exact />
+        <Route component={Search} path="/searchTickets/:searchType" exact />
+        <Route component={Search} path="/searchUsers/:searchType" exact />
       </Router>
     );
   }

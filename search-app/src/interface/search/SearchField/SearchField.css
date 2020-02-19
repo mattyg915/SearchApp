@@ -1,0 +1,14 @@
+.search-field {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-field__button {
+  background-color: lightgray;
+  color: black;
+  font-size: 18px;
+  margin: 16px;
+  width: 20%;
+  padding: 10px;
+  border-radius: 2px;
+}

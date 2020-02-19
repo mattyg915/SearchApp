@@ -16,13 +16,27 @@ class Main extends Component<searchAppProps, searchAppState> {
         <div className="App-options">
           <div className="App-options-text">Select a search option</div>
           <div className="App-option-select">
-            <Link className="App-option-button" to="/search-organizations">
+            <Link
+              className="App-option-button"
+              to={{
+                pathname: "/searchOrgs/organizations",
+                state: { type: "org" }
+              }}
+            >
               Search Organizations
             </Link>
-            <Link className="App-option-button" to="/search-tickets">
+            <Link
+              className="App-option-button"
+              to="/searchTickets/tickets"
+              type="ticket"
+            >
               Search Tickets
             </Link>
-            <Link className="App-option-button" to="/search-users">
+            <Link
+              className="App-option-button"
+              to="/searchUsers/users"
+              type="user"
+            >
               Search Users
             </Link>
           </div>
