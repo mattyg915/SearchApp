@@ -17,7 +17,7 @@ interface searchState {
   title: string;
   ctrl: OrganizationController | TicketController | UserController | null;
   searchFields: Array<searchObject> | null;
-  query: object;
+  query: any;
   results: Array<Organization> | Array<Ticket> | Array<User> | null;
 }
 
@@ -111,10 +111,18 @@ class Search extends Component<any, searchState> {
 
   /**
    * Saves the new input for a searchField to query
+   * @param newQuery the query to update
+   * @param? remove optional, if true deletes the provided query from the master query
    */
-  addToQuery = (newQuery: object) => {
+  addToQuery = (newQuery: object, remove?: boolean) => {
     const { query } = this.state;
-    Object.assign(query, newQuery);
+    if (remove) {
+      for (let key in newQuery) {
+        delete query[key];
+      }
+    } else {
+      Object.assign(query, newQuery);
+    }
     this.setState({ query });
   };
 
@@ -123,6 +131,7 @@ class Search extends Component<any, searchState> {
    */
   search = () => {
     const { ctrl, query } = this.state;
+
     let results: Array<Organization> | Array<Ticket> | Array<User> | null;
 
     if (ctrl instanceof OrganizationController) {

@@ -1,0 +1,19 @@
+.field-name {
+  font-weight: bold;
+}
+
+.field-value {
+  font-style: italic;
+}
+
+.object-field {
+  margin: 6px;
+}
+
+.divider {
+  margin: 4px 0;
+  font-size: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
