@@ -1,3 +1,5 @@
+import { searchObject } from "../../utils/types";
+
 export interface ticketJson {
   _id: string;
   url: string;
@@ -36,21 +38,21 @@ export interface ticketQuery {
   via?: string;
 }
 
-export const ticketSearchFields: Array<string> = [
-  "_id",
-  "url",
-  "external_id",
-  "created_at",
-  "type",
-  "subject",
-  "description",
-  "priority",
-  "status",
-  "submitter_id",
-  "assignee_id",
-  "organization_id",
-  "tags",
-  "has_incidents",
-  "due_at",
-  "via"
+export const ticketSearchFields: Array<searchObject> = [
+  { title: "_id", type: "string" },
+  { title: "url", type: "string" },
+  { title: "external_id", type: "string" },
+  { title: "created_at", type: "date" },
+  { title: "type", type: "string" },
+  { title: "subject", type: "string" },
+  { title: "description", type: "string" },
+  { title: "priority", type: "string" },
+  { title: "status", type: "string" },
+  { title: "submitter_id", type: "number" },
+  { title: "assignee_id", type: "number" },
+  { title: "organization_id", type: "number" },
+  { title: "tags", type: "string" },
+  { title: "has_incidents", type: "boolean" },
+  { title: "due_at", type: "date" },
+  { title: "via", type: "string" }
 ];

@@ -17,19 +17,39 @@
 .search__body {
   background-color: #6e7686;
   min-height: 80vh;
-  padding: 36px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
 }
 
-.search__field-text {
+.search__text-and-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.search__text-and-button--text {
   margin: 16px;
   font-size: 24px;
   align-self: center;
+}
+
+.search__text-and-button--button {
+  background-color: lightgrey;
+}
+
+.search__select-and-results {
+  display: flex;
+  flex-direction: row;
 }
 
 .search__field-select {
   display: flex;
   flex-direction: column;
   margin-left: 36px;
+  width: 50%;
+}
+
+.search__results {
+  width: 50%;
 }

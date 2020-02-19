@@ -1,3 +1,5 @@
+import { searchObject } from "../../utils/types";
+
 export interface orgJson {
   _id: number;
   url: string;
@@ -22,14 +24,14 @@ export interface orgQuery {
   tags?: string;
 }
 
-export const orgSearchFields: Array<string> = [
-  "_id",
-  "url",
-  "external_id",
-  "name",
-  "domain_names",
-  "created_at",
-  "details",
-  "shared_tickets",
-  "tags"
+export const orgSearchFields: Array<searchObject> = [
+  { title: "_id", type: "number" },
+  { title: "url", type: "string" },
+  { title: "external_id", type: "string" },
+  { title: "name", type: "string" },
+  { title: "dommain_names", type: "string" },
+  { title: "created_at", type: "date" },
+  { title: "details", type: "string" },
+  { title: "shared_tickets", type: "boolean" },
+  { title: "tags", type: "string" }
 ];

@@ -1,3 +1,5 @@
+import { searchObject } from "../../utils/types";
+
 export interface userJson {
   _id: number;
   url: string;
@@ -42,24 +44,24 @@ export interface userQuery {
   role?: string;
 }
 
-export const userSearchFields: Array<string> = [
-  "_id",
-  "url",
-  "external_id",
-  "name",
-  "alias",
-  "created_at",
-  "active",
-  "verified",
-  "shared",
-  "locale",
-  "timezone",
-  "last_login_at",
-  "email",
-  "phone",
-  "signature",
-  "organization_id",
-  "tags",
-  "suspended",
-  "role"
+export const userSearchFields: Array<searchObject> = [
+  { title: "_id", type: "number" },
+  { title: "url", type: "string" },
+  { title: "external_id", type: "string" },
+  { title: "name", type: "string" },
+  { title: "alias", type: "string" },
+  { title: "created_at", type: "date" },
+  { title: "active", type: "boolean" },
+  { title: "verified", type: "boolean" },
+  { title: "shared", type: "boolean" },
+  { title: "locale", type: "string" },
+  { title: "timezone", type: "string" },
+  { title: "last_login_at", type: "date" },
+  { title: "email", type: "string" },
+  { title: "phone", type: "string" },
+  { title: "signature", type: "string" },
+  { title: "organization_id", type: "number" },
+  { title: "tags", type: "string" },
+  { title: "suspended", type: "boolean" },
+  { title: "role", type: "string" }
 ];

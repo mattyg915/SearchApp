@@ -1,6 +1,6 @@
 import { hasKey } from "../../utils/utils";
 
-export class Base {
+export class Base extends Object {
   /**
    * @param key the field to return a value for
    * @returns the value at the specified field, or undefined
