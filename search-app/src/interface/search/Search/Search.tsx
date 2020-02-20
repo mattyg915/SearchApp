@@ -60,6 +60,9 @@ class Search extends Component<any, searchState> {
   render() {
     const { title, results } = this.state;
 
+    const instructions: string =
+      'Use quotes for exact match searching, i.e. "search". Select a field and leave it blank to search for blank or absent values';
+
     return (
       <div className="search">
         <div className="search__header">
@@ -67,8 +70,11 @@ class Search extends Component<any, searchState> {
         </div>
         <div className="search__body">
           <div className="search__text-and-button">
-            <div className="search__text-and-button--text">
-              Select fields to search on:
+            <div className="instructions">
+              <div className="search__text-and-button--text">
+                Select fields to search on:
+              </div>
+              <div className="instructions__text">{instructions}</div>
             </div>
             <button
               onClick={this.search}

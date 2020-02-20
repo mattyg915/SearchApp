@@ -38,6 +38,17 @@
   background-color: lightgrey;
   width: 10%;
   font-size: 16px;
+  max-height: 56px;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0;
+}
+
+.instructions__text {
+  font-size: 18px;
 }
 
 .search__select-and-results {
