@@ -36,6 +36,8 @@
 
 .search__text-and-button--button {
   background-color: lightgrey;
+  width: 10%;
+  font-size: 16px;
 }
 
 .search__select-and-results {

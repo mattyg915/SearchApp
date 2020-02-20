@@ -47,8 +47,6 @@ class SearchResult extends Component<SearchResultProps, any> {
     Object.keys(element).forEach(key => {
       // Handle array fields
       if (typeof element[key] === "object" && element[key] !== null) {
-        console.log(key);
-        console.log(typeof element[key]);
         // Format the array into something more readable
         let arrayString: string = element[key].toString();
         arrayString = arrayString.replace(/,/g, " | ");

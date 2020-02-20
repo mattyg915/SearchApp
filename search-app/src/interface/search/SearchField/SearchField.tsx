@@ -48,12 +48,18 @@ class SearchField extends Component<SearchFieldProps, SearchFieldState> {
     const { type, title } = this.props;
     let query: any = {};
     if (type === "date") {
-      // special case
+      // Dates are special
       const dateQuery: any = {
         date: {}
       };
       dateQuery.date[title] = event.target.value;
       query = dateQuery;
+    } else if (type === "number") {
+      query[title] = parseInt(event.target.value);
+    } else if (type === "boolean") {
+      const bool =
+        event.target.value === "true" || event.target.value === "yes";
+      query[title] = bool;
     } else {
       query[title] = event.target.value;
     }
@@ -72,6 +78,8 @@ class SearchField extends Component<SearchFieldProps, SearchFieldState> {
     if (selected) {
       this.props.onInputChange(query, true);
       query = null;
+    } else {
+      // Otherwise insert 'null' for
     }
 
     selected = !selected;
