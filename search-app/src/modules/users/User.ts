@@ -71,14 +71,18 @@ export class User extends Base {
     const org: Array<Organization> = orgCtrl.getMatchingOrgs({
       _id: this.organization_id
     });
-    result.push("Organization: " + org[0].name);
+    if (org[0] && org[0].name) {
+      result.push("Organization: " + org[0].name);
+    }
 
     // Get tickets they've submitted
     const ticketsSubmitted: Array<Ticket> = ticketCtrl.getMatchingTickets({
       submitter_id: this._id
     });
     for (let ticket of ticketsSubmitted) {
-      result.push("Ticket submitted: " + ticket.subject);
+      if (ticket.subject) {
+        result.push("Ticket submitted: " + ticket.subject);
+      }
     }
 
     // Get the tickets they're assigned to
@@ -86,7 +90,9 @@ export class User extends Base {
       assignee_id: this._id
     });
     for (let ticket of ticketsAssigned) {
-      result.push("Assigned to ticket: " + ticket.subject);
+      if (ticket.subject) {
+        result.push("Assigned to ticket: " + ticket.subject);
+      }
     }
 
     return result;

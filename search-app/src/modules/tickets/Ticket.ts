@@ -66,19 +66,25 @@ export class Ticket extends Base {
     const org: Array<Organization> = orgCtrl.getMatchingOrgs({
       _id: this.organization_id
     });
-    result.push("Organization: " + org[0].name);
+    if (org[0] && org[0].name) {
+      result.push("Organization: " + org[0].name);
+    }
 
     // Get the user who submitted it
     const submitter: Array<User> = userCtrl.getMatchingUsers({
       _id: this.submitter_id
     });
-    result.push("Submitted by: " + submitter[0].name);
+    if (submitter.length > 0 && submitter[0].name) {
+      result.push("Submitted by: " + submitter[0].name);
+    }
 
     // Get the user assigned to it
     const assignee: Array<User> = userCtrl.getMatchingUsers({
       _id: this.assignee_id
     });
-    result.push("Assigned to: " + assignee[0].name);
+    if (assignee.length > 0 && assignee[0].name) {
+      result.push("Assigned to: " + assignee[0].name);
+    }
 
     return result;
   }

@@ -49,7 +49,9 @@ export class Organization extends Base {
       organization_id: this._id
     });
     for (let ticket of tickets) {
-      result.push("Ticket: " + ticket.subject);
+      if (ticket.subject) {
+        result.push("Ticket: " + ticket.subject);
+      }
     }
 
     // Get users who belong to this org
@@ -57,7 +59,9 @@ export class Organization extends Base {
       organization_id: this._id
     });
     for (let user of users) {
-      result.push("User: " + user.name);
+      if (user.name) {
+        result.push("User: " + user.name);
+      }
     }
 
     return result;
