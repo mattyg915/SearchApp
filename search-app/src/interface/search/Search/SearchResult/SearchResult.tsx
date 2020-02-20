@@ -33,7 +33,11 @@ class SearchResult extends Component<SearchResultProps, any> {
         </div>
       );
 
-      elements.push(<div className="divider">------------</div>);
+      elements.push(
+        <div key={results[i]._id + "divide1"} className="divider">
+          ------------
+        </div>
+      );
 
       // Print the element's related data
       const relatedItems: Array<JSX.Element> = this.printRelatedData(
@@ -44,7 +48,9 @@ class SearchResult extends Component<SearchResultProps, any> {
       }
 
       elements.push(
-        <div className="divider">******************************</div>
+        <div className="divider" key={results[i]._id + "divide2"}>
+          ******************************
+        </div>
       );
     }
 
@@ -64,22 +70,34 @@ class SearchResult extends Component<SearchResultProps, any> {
         arrayString = arrayString.replace(/,/g, " | ");
         result.push(
           <div className="object-field" key={key + element._id}>
-            <span className="field-name">- {key} - </span>
-            <span className="field-value">{arrayString}</span>
+            <span className="field-name" key={key + element._id + 1}>
+              - {key} -{" "}
+            </span>
+            <span className="field-value" key={key + element._id + 2}>
+              {arrayString}
+            </span>
           </div>
         );
       } else if (typeof element[key] === "boolean") {
         result.push(
           <div className="object-field" key={key + element._id}>
-            <span className="field-name">- {key} - </span>
-            <span className="field-value">{element[key] ? "Yes" : "No"}</span>
+            <span className="field-name" key={key + element._id + 1}>
+              - {key} -{" "}
+            </span>
+            <span className="field-value" key={key + element._id + 2}>
+              {element[key] ? "Yes" : "No"}
+            </span>
           </div>
         );
       } else {
         result.push(
           <div className="object-field" key={key + element._id}>
-            <span className="field-name">- {key} - </span>
-            <span className="field-value">{element[key]}</span>
+            <span className="field-name" key={key + element._id + 1}>
+              - {key} -{" "}
+            </span>
+            <span className="field-value" key={key + element._id + 2}>
+              {element[key]}
+            </span>
           </div>
         );
       }
