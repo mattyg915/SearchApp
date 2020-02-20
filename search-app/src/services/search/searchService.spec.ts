@@ -7,6 +7,22 @@ describe("Search Service", () => {
       expect(result).toBe(true);
     });
 
+    it("returns true on an exact match search exact matches", () => {
+      const result: boolean = searchService.searchStringField(
+        '"search"',
+        "search"
+      );
+      expect(result).toBe(true);
+    });
+
+    it("returns false on an exact match search if they aren't exact matches", () => {
+      const result: boolean = searchService.searchStringField(
+        '"sea"',
+        "search"
+      );
+      expect(result).toBe(false);
+    });
+
     it("is case insensitive", () => {
       const result: boolean = searchService.searchStringField("SEA", "search");
       expect(result).toBe(true);
