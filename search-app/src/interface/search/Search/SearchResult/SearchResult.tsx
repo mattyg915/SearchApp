@@ -39,7 +39,6 @@ class SearchResult extends Component<SearchResultProps, any> {
       const relatedItems: Array<JSX.Element> = this.printRelatedData(
         results[i]
       );
-      console.log(relatedItems);
       for (let item of relatedItems) {
         elements.push(item);
       }
@@ -102,7 +101,7 @@ class SearchResult extends Component<SearchResultProps, any> {
 
     for (let item of data) {
       result.push(
-        <div key={item} className="related-item">
+        <div key={item + element._id} className="related-item">
           # {item}
         </div>
       );

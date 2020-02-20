@@ -19,6 +19,15 @@ export class searchService {
 
     search = search.toLowerCase();
     source = source.toLowerCase();
+
+    // search only exact matches
+    const exactRegex = /"[a-z]+"/i;
+    if (exactRegex.test(search)) {
+      search = search.replace(/"/g, "");
+      return source === search;
+    }
+
+    // search for any instance of string
     return source.indexOf(search) >= 0;
   }
   /**
