@@ -27,7 +27,11 @@ export class BaseController {
           query = params[option];
           searchTerm = item[option];
         } else {
-          // optional fields that aren't populated will be caught here
+          // optional fields that aren't present will be caught here
+          if (hasKey(params, option) && typeof params[option] === "undefined") {
+            // This means we're searching for undefined or null fields
+            break;
+          }
           searchMatch = false;
           break;
         }
