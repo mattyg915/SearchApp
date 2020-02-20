@@ -61,7 +61,8 @@ class Search extends Component<any, searchState> {
     const { title, results } = this.state;
 
     const instructions: string =
-      'Use quotes for exact match searching, i.e. "search". Select a field and leave it blank to search for blank or absent values';
+      'Use quotes for exact match searching, i.e. "search". Select a field and leave it ' +
+      'blank to search for blank or absent values. Dates must be in the format "YYYY-MM-DD" exactly.';
 
     return (
       <div className="search">

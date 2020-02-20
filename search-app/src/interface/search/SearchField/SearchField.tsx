@@ -49,10 +49,10 @@ class SearchField extends Component<SearchFieldProps, SearchFieldState> {
     let query: any = {};
     if (type === "date") {
       // Dates are special
-      const dateQuery: any = {
-        date: {}
+      const dateQuery: any = {};
+      dateQuery[title] = {
+        date: event.target.value
       };
-      dateQuery.date[title] = event.target.value;
       query = dateQuery;
     } else if (type === "number") {
       query[title] = parseInt(event.target.value);
@@ -73,7 +73,7 @@ class SearchField extends Component<SearchFieldProps, SearchFieldState> {
    */
   selectField = () => {
     let { selected, query } = this.state;
-    const { title } = this.props;
+    const { title, type } = this.props;
 
     // Clear the query on deselect
     if (selected) {
@@ -81,7 +81,14 @@ class SearchField extends Component<SearchFieldProps, SearchFieldState> {
       query = null;
     } else {
       // Otherwise insert 'undefined' for empty value searches
-      query[title] = undefined;
+      if (type === "date") {
+        // dates are annoying
+        query[title] = {};
+        query[title]["date"] = undefined;
+      } else {
+        query[title] = undefined;
+      }
+
       this.props.onInputChange(query);
     }
 
