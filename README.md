@@ -1,6 +1,12 @@
 ## Install
 
-Clone this repository down to your machine. Make sure you have yarn and node installed. The easiest way to install both on a mac is to use homebrew. Run `brew install node` and `brew install yarn` from the terminal. To install homebrew on a mac, run `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` from your terminal. Once these pre-requisites are installed, run:
+Clone this repository down to your machine. Make sure you have yarn and node installed. The easiest way to install both on a mac is to use homebrew. Run `brew install node` and `brew install yarn` from the terminal.
+
+To install homebrew on a mac, run `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` from your terminal.
+
+For PC, instructions to install node can be found at https://nodejs.org/en/download/. To install yarn, follow instructions at https://classic.yarnpkg.com/en/docs/install/#windows-stable.
+
+Once these pre-requisites are installed, run:
 
 ### `yarn install`
 
