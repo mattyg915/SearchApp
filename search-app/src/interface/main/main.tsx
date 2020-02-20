@@ -1,6 +1,6 @@
+import "./main.css";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./main.css";
 
 interface searchAppProps {}
 

@@ -133,7 +133,6 @@ class Search extends Component<any, searchState> {
     const { ctrl, query } = this.state;
 
     let results: Array<Organization> | Array<Ticket> | Array<User> | null;
-    let related: Array<string> | null = [];
 
     if (ctrl instanceof OrganizationController) {
       results = ctrl.getMatchingOrgs(query);

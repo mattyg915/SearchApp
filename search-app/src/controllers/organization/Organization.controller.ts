@@ -5,9 +5,6 @@ import {
   orgJson
 } from "../../../src/modules/organizations/organizations.interfaces";
 import { Organization } from "../../../src/modules/organizations/Organization";
-import { TicketController } from "../ticket/Ticket.controller.js";
-import { UserController } from "../user/User.controller.js";
-import { Ticket } from "../../modules/tickets/Ticket.js";
 
 export class OrganizationController extends BaseController {
   orgData!: Array<orgJson>;
