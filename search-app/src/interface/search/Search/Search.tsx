@@ -137,22 +137,10 @@ class Search extends Component<any, searchState> {
 
     if (ctrl instanceof OrganizationController) {
       results = ctrl.getMatchingOrgs(query);
-      for (let org of results) {
-        let test = org.getRelatedData();
-        console.log(test);
-      }
     } else if (ctrl instanceof TicketController) {
       results = ctrl.getMatchingTickets(query);
-      for (let ticket of results) {
-        let test = ticket.getRelatedData();
-        console.log(test);
-      }
     } else if (ctrl instanceof UserController) {
       results = ctrl.getMatchingUsers(query);
-      for (let user of results) {
-        let test = user.getRelatedData();
-        console.log(test);
-      }
     } else {
       results = null;
     }

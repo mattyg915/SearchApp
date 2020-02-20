@@ -26,11 +26,24 @@ class SearchResult extends Component<SearchResultProps, any> {
     const elements: Array<JSX.Element> = [];
 
     for (let i = 0; i < results.length; i++) {
+      // Print the element's fields
       elements.push(
         <div className="result-object" key={results[i]._id}>
           {this.printElement(results[i])}
         </div>
       );
+
+      elements.push(<div className="divider">------------</div>);
+
+      // Print the element's related data
+      const relatedItems: Array<JSX.Element> = this.printRelatedData(
+        results[i]
+      );
+      console.log(relatedItems);
+      for (let item of relatedItems) {
+        elements.push(item);
+      }
+
       elements.push(
         <div className="divider">******************************</div>
       );
@@ -52,26 +65,48 @@ class SearchResult extends Component<SearchResultProps, any> {
         arrayString = arrayString.replace(/,/g, " | ");
         result.push(
           <div className="object-field" key={key + element._id}>
-            <span className="field-name">- {key}......</span>
+            <span className="field-name">- {key} - </span>
             <span className="field-value">{arrayString}</span>
           </div>
         );
       } else if (typeof element[key] === "boolean") {
         result.push(
           <div className="object-field" key={key + element._id}>
-            <span className="field-name">- {key} ... </span>
+            <span className="field-name">- {key} - </span>
             <span className="field-value">{element[key] ? "Yes" : "No"}</span>
           </div>
         );
       } else {
         result.push(
           <div className="object-field" key={key + element._id}>
-            <span className="field-name">- {key} ... </span>
+            <span className="field-name">- {key} - </span>
             <span className="field-value">{element[key]}</span>
           </div>
         );
       }
     });
+
+    return result;
+  };
+
+  /**
+   * Parses an array of strings representing an element's related data
+   * e.g. the tickets within an organization into displayable
+   * elements
+   */
+  printRelatedData = (
+    element: Organization | Ticket | User
+  ): Array<JSX.Element> => {
+    const result: Array<JSX.Element> = [];
+    const data: Array<string> = element.getRelatedData();
+
+    for (let item of data) {
+      result.push(
+        <div key={item} className="related-item">
+          # {item}
+        </div>
+      );
+    }
 
     return result;
   };
