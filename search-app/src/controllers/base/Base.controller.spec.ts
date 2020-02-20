@@ -72,5 +72,12 @@ describe("BaseController", () => {
 
       expect(orgResult).toEqual([]);
     });
+
+    it("returns results where a field is null or undefined if that's the search value", () => {
+      const query = { details: undefined };
+      const orgResult = ctrl.getMatchingData(query, orgData);
+
+      expect(orgResult).toEqual([dataMockOne, dataMockTwo]);
+    });
   });
 });
