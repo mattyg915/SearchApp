@@ -23,8 +23,8 @@ Then launches the app in your default browser. If it does not launch automatical
 
 ## Assumptions/Limitations
 
-- searches on string fields (including the values in arrays) will return partial matches unless surrounded by quotation marks
-- you cannot have multiple tokens in a search, e.g. a search for an exact match on one term with an additional partial match term, or two exact-match terms
-- all number searches (such as user and organization IDs) are exact match only
+- Searches on string fields (including the values in arrays) will return partial matches unless surrounded by quotation marks
+- You cannot have multiple tokens in a search, e.g. a search for an exact match on one term with an additional partial match term, or two exact-match terms
+- All number searches (such as user and organization IDs) are exact match only
 - Dates must be properly formatted (YYYY-MM-DD) to work, and are exact match only (no after/before a certain date searches currently supported)
 - "Empty" fields are assumed to be either `null`, the field is present but nothing is in it, or `undefined`, the field is missing entirely for that particular object. An empty string is not handled in this case.
