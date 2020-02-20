@@ -1,5 +1,9 @@
 import { Base } from "../Base/Base";
 import { userJson } from "./user.interfaces";
+import { TicketController } from "../../controllers/ticket/Ticket.controller";
+import { OrganizationController } from "../../controllers/organization/Organization.controller";
+import { Organization } from "../organizations/Organization";
+import { Ticket } from "../tickets/Ticket";
 
 /**
  * User class contains data and functions related to an
@@ -53,5 +57,38 @@ export class User extends Base {
     this.tags = userData.tags;
     this.suspended = userData.suspended;
     this.role = userData.role;
+  }
+
+  /**
+   * @returns an array of strings with the related data from this object
+   */
+  getRelatedData(): Array<string> {
+    let result: Array<string> = [];
+    const orgCtrl = new OrganizationController();
+    const ticketCtrl = new TicketController();
+
+    // Get the org name they belong to
+    const org: Array<Organization> = orgCtrl.getMatchingOrgs({
+      _id: this.organization_id
+    });
+    result.push("Organization: " + org[0].name);
+
+    // Get tickets they've submitted
+    const ticketsSubmitted: Array<Ticket> = ticketCtrl.getMatchingTickets({
+      submitter_id: this._id
+    });
+    for (let ticket of ticketsSubmitted) {
+      result.push("Ticket submitted: " + ticket.subject);
+    }
+
+    // Get the tickets they're assigned to
+    const ticketsAssigned: Array<Ticket> = ticketCtrl.getMatchingTickets({
+      assignee_id: this._id
+    });
+    for (let ticket of ticketsAssigned) {
+      result.push("Assigned to ticket: " + ticket.subject);
+    }
+
+    return result;
   }
 }

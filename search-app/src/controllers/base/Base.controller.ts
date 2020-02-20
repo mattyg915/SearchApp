@@ -1,5 +1,10 @@
 import { searchService } from "../../services/search/searchService";
 import { hasKey } from "../../../src/utils/utils";
+import { Organization } from "../../modules/organizations/Organization";
+import { User } from "../../modules/users/User";
+import { Ticket } from "../../modules/tickets/Ticket";
+import { TicketController } from "../ticket/Ticket.controller";
+import { UserController } from "../user/User.controller";
 
 export class BaseController {
   /**
