@@ -1,10 +1,10 @@
 ## Install
 
-Clone this repository down to your machine, then run:
+Clone this repository down to your machine. Make sure you have yarn and node installed (the easiest way to install both on a mac is to use homebrew run `brew install node` and `brew install yarn` from the terminal). To install homebrew on a mac, run `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` from your terminal. Once these pre-requisites are installed, run:
 
 ### `yarn install`
 
-... from the root to install all needed dependencies.
+... from the search-app directory to install all needed application dependencies.
 
 ### `yarn test`
 
