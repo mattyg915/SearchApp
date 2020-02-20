@@ -10,7 +10,7 @@ interface SearchFieldProps {
 
 interface SearchFieldState {
   selected: boolean;
-  query: object | null;
+  query: any;
 }
 
 class SearchField extends Component<SearchFieldProps, SearchFieldState> {
@@ -19,7 +19,7 @@ class SearchField extends Component<SearchFieldProps, SearchFieldState> {
 
     this.state = {
       selected: false,
-      query: null
+      query: {}
     };
   }
   render() {
@@ -73,13 +73,16 @@ class SearchField extends Component<SearchFieldProps, SearchFieldState> {
    */
   selectField = () => {
     let { selected, query } = this.state;
+    const { title } = this.props;
 
     // Clear the query on deselect
     if (selected) {
       this.props.onInputChange(query, true);
       query = null;
     } else {
-      // Otherwise insert 'null' for
+      // Otherwise insert 'undefined' for empty value searches
+      query[title] = undefined;
+      this.props.onInputChange(query);
     }
 
     selected = !selected;

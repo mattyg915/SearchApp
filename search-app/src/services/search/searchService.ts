@@ -37,6 +37,13 @@ export class searchService {
     return search === source;
   }
   /**
+   * @param source the field to check
+   * @returns true if the field is null or undefined
+   */
+  static searchNullField(source: any): boolean {
+    return source === undefined || source === null;
+  }
+  /**
    * @param search the bool to search for
    * @param source the bool to compare
    * @returns true if the bools match

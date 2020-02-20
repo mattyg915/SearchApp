@@ -31,8 +31,15 @@ export class BaseController {
           searchMatch = false;
           break;
         }
-
-        if (typeof query === "string" && typeof searchTerm === "string") {
+        if (typeof query === "undefined") {
+          if (!searchService.searchNullField(searchTerm)) {
+            searchMatch = false;
+            break;
+          }
+        } else if (
+          typeof query === "string" &&
+          typeof searchTerm === "string"
+        ) {
           if (!searchService.searchStringField(query, searchTerm)) {
             searchMatch = false;
             break;
